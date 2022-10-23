@@ -78,6 +78,14 @@ function App() {
   useEffect(() => {
     if (popup === true) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "unset";
+
+    const close = (e) => {
+      if (e.keyCode === 27) {
+        setPopup(false);
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
   });
 
   return (
