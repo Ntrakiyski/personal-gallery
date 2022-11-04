@@ -3,6 +3,8 @@ import React from "react";
 import Gallery from "./components/Gallery";
 import Recents from "./components/Recents";
 import Upload from "./components/Upload";
+import Sicily from "./components/Sicily";
+import Amsterdam from "./components/Amsterdam";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -13,6 +15,8 @@ const App = () => {
         <Upload />
         <Routes>
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/sicily" element={<Sicily />} />
+          <Route path="/amsterdam" element={<Amsterdam />} />
           <Route path="/" element={<Recents />} />
         </Routes>
       </BrowserRouter>
