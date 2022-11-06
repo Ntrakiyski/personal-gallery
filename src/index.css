@@ -1,18 +1,48 @@
 body {
-  /* margin: 0;
-  padding:0;
-  background: rgb(255,216,155);
-  background: linear-gradient(111deg, rgba(255,216,155,0.277468487394958) 0%, rgba(25,84,123,0.4194852941176471) 55%); */
-  height:100vh;
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #f3f1e8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffffff,
+    #f3f1e8
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #f3f1e8
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 input[type="file"] {
   display: none;
 }
 
-.flex-row{
-  display:flex;
+.flex-row {
+  display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.flex-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.btn {
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: lightgrey;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

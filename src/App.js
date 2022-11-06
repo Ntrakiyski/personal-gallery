@@ -1,29 +1,25 @@
 import styled from "styled-components";
 import React from "react";
-import Gallery from "./components/Gallery";
-import Recents from "./components/Recents";
-import Upload from "./components/Upload";
-import Sicily from "./components/Sicily";
-import Amsterdam from "./components/Amsterdam";
+import Gallery from "./pages/Gallery";
+import Home from "./pages/Home";
+import Sicily from "./pages/Sicily";
+import Amsterdam from "./pages/Amsterdam";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <Styles>
+    <div className="flex-col">
       <BrowserRouter>
-        <Upload />
         <Routes>
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/sicily" element={<Sicily />} />
           <Route path="/amsterdam" element={<Amsterdam />} />
-          <Route path="/" element={<Recents />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
-    </Styles>
+    </div>
   );
 };
 
 export default App;
-
-const Styles = styled.div``;

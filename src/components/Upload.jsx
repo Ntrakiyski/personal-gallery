@@ -57,9 +57,9 @@ const Upload = () => {
   }, [progress]);
 
   return (
-    <Styles>
-      <div className="flex-row">
-        <label className="btn">
+    <Styles className="flex-col">
+      <div className="select-input">
+        <label>
           <input
             className="input"
             type="file"
@@ -68,13 +68,6 @@ const Upload = () => {
           />
           Select files
         </label>
-
-        <Link to="/" className="btn">
-          Recents
-        </Link>
-        <Link to="/gallery" className="btn">
-          Gallery
-        </Link>
       </div>
 
       {selectedFile && (
@@ -87,7 +80,10 @@ const Upload = () => {
           {selectedFile && (
             <div className="flex-row uplaod">
               {isUploading === 1 ? (
-                <div className="btn" onClick={() => uploadFile(selectedFile)}>
+                <div
+                  className="btn cta"
+                  onClick={() => uploadFile(selectedFile)}
+                >
                   Upload image <b>{fileName}</b>
                 </div>
               ) : isUploading === 2 ? (
@@ -106,19 +102,37 @@ const Upload = () => {
 export default Upload;
 
 const Styles = styled.div`
-  padding: 5%;
-  .btn {
-    border: 1px solid #ccc;
-    padding: 6px 12px;
-    cursor: pointer;
-    display: inline-block;
-
-    :hover {
-      background-color: lightgrey;
-    }
-  }
   .flex-row {
     gap: 30px;
     margin-bottom: 100px;
+  }
+  gap: 40px;
+
+  .select-input {
+    label {
+      border: 1px solid #ccc;
+      padding: 6px 12px;
+      cursor: pointer;
+      padding: 6px 12px;
+      :hover {
+        background-color: lightgrey;
+      }
+    }
+    width: 100px;
+    text-align: center;
+  }
+  .image-preview {
+    max-height: 400px;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  .cta {
+    background-color: lightgreen;
+    :hover {
+      background-color: #78ca78;
+    }
   }
 `;

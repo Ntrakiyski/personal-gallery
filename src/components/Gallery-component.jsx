@@ -3,6 +3,7 @@ import AWS from "aws-sdk";
 import styled from "styled-components";
 import { useInView } from "react-intersection-observer";
 import Placeholder from "./Placeholder";
+import Loading from "./Loading";
 
 AWS.config.update({
   accessKeyId: process.env.REACT_APP_ACCESS_KEY,
@@ -37,10 +38,6 @@ export default function GalleryComponent({ prefix }) {
     });
   }, [loadMore, loading, listFiles]);
 
-  function ShowMore() {
-    setLoadMore(loadMore + 10);
-  }
-
   return (
     <Styles>
       {!listFiles.length && <Placeholder />}
@@ -60,8 +57,15 @@ export default function GalleryComponent({ prefix }) {
               height="100%"
             />
           ))}
-
-        {listFiles && <div onClick={ShowMore}>loading more .....</div>}
+        {listFiles.length >= loadMore && (
+          <div ref={ref} className="load-more">
+            <Loading
+              inView={inView}
+              setLoadMore={setLoadMore}
+              loadMore={loadMore}
+            />
+          </div>
+        )}
       </div>
     </Styles>
   );
